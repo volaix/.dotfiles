@@ -7,7 +7,7 @@ set smarttab 											"use tabs at start of line, spaces elsewhere
 set nowrap												"don't wrap text
 set relativenumber
 set number
-set mouse=a
+set mouse=a                       "enables mouse clicking to move cursor"
 set backspace=indent,eol,start
 syntax on
 set ignorecase            " Make searches case-insensitive.
