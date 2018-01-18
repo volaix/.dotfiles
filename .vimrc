@@ -39,6 +39,7 @@ call plug#begin()
   Plug 'kien/ctrlp.vim'
   Plug 'metakirby5/codi.vim' 
   Plug 'Valloric/YouCompleteMe' 
+  Plug 'vimwiki/vimwiki' 
 call plug#end()
 
 "-------------Plugin Settings--------------"
@@ -70,6 +71,9 @@ let g:ctrlp_custom_ignore = {
 
 "YCM Settings
 let g:ycm_autoclose_preview_window_after_completion=1
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 "-------------Visuals--------------"
 let g:onedark_termcolors=16

@@ -91,6 +91,7 @@ alias v="nvim"
 alias vi="nvim"
 alias vim="nvim"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
+alias rm='echo "rm is disabled, use remove or trash or /bin/rm instead."'
 
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
