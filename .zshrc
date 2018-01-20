@@ -6,6 +6,8 @@ export ZSH=/Users/mark/.oh-my-zsh
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_DEFAULT_COMMAND="fd . $HOME"
+export FZF_ALT_C_COMMAND="fd -t d . $HOME"
 
 #Hides my name in terminal (I think)
 DEFAULT_USER=`whoami`
@@ -14,6 +16,9 @@ DEFAULT_USER=`whoami`
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+#Powerlevel9k settings
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator vi_mode history time)
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -54,7 +59,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git web-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,8 +98,28 @@ alias vim="nvim"
 alias ranger='ranger --choosedir=$HOME/rangerdir; LASTDIR=`cat $HOME/rangerdir`; cd "$LASTDIR"'
 alias rm='echo "rm is disabled, use remove or trash or /bin/rm instead."'
 
+# Vi Mode
+# bindkey -v
+# bindkey '^P' up-history
+# bindkey '^N' down-history
+# bindkey '^?' backward-delete-char
+# bindkey '^h' backward-delete-char
+# bindkey '^w' backward-kill-word
+# bindkey '^r' history-incremental-search-backward
+# precmd() { RPROMPT="" }
+# function zle-line-init zle-keymap-select {
+#    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+#    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+#    zle reset-prompt
+# }
+#
+# zle -N zle-line-init
+# zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
+# Highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+#aliases for my dotfiles
 export PATH="/usr/local/opt/gettext/bin:$PATH"
 alias dotfiles='/usr/bin/git --git-dir=/Users/mark/.dotfiles/ --work-tree=/Users/mark'

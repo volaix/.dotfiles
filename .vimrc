@@ -11,6 +11,8 @@ set mouse=a                       "enables mouse clicking to move cursor"
 set backspace=indent,eol,start
 syntax on
 set ignorecase            " Make searches case-insensitive.
+set modifiable              "make buffers modifiable i think? but more for vimtree to edit things"
+
 
 "disable automatic comment insertion
 "HOW?!
@@ -40,6 +42,7 @@ call plug#begin()
   Plug 'metakirby5/codi.vim' 
   Plug 'Valloric/YouCompleteMe' 
   Plug 'vimwiki/vimwiki' 
+  Plug 'mattn/calendar-vim'
 call plug#end()
 
 "-------------Plugin Settings--------------"
@@ -74,6 +77,22 @@ let g:ycm_autoclose_preview_window_after_completion=1
 
 " vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+"integrating calendar with vimwiki
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+autocmd FileType vimwiki map <Leader>c :call ToggleCalendar()
 
 "-------------Visuals--------------"
 let g:onedark_termcolors=16
