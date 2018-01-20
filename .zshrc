@@ -18,7 +18,7 @@ DEFAULT_USER=`whoami`
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 #Powerlevel9k settings
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator vi_mode history time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(root_indicator status vi_mode time)
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.

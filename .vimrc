@@ -1,4 +1,5 @@
 "-------------Vim Settings--------------"
+set nocompatible
 set tabstop=2                     "tab spacing
 set softtabstop=0                 "unify
 set expandtab                     "use spaces instead of tabs
@@ -12,10 +13,13 @@ set backspace=indent,eol,start
 syntax on
 set ignorecase            " Make searches case-insensitive.
 set modifiable              "make buffers modifiable i think? but more for vimtree to edit things"
-
+set formatoptions-=cro
 
 "disable automatic comment insertion
-"HOW?!
+augroup Format-Options
+    autocmd!
+    autocmd BufEnter * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
 
 "Save with cmd+s
 :map <D-s> :w<kEnter>  
